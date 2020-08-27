@@ -1,0 +1,26 @@
+{
+  "name": "insg-ts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+	  "watch": "parcel watch html/buses.html",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "parcel html/*.html",
+    "build": "rm dist/*; parcel build html/*.html" 
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/seesea2/insg-ts.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/seesea2/insg-ts/issues"
+  },
+  "homepage": "https://github.com/seesea2/insg-ts#readme",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4",
+    "typescript": "^3.9.7"
+  }
+}

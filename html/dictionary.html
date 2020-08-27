@@ -1,0 +1,65 @@
+<!doctype html>
+
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>InSG-Dictionary</title>
+		<base href="/">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Oxford Dictionaries" />
+		<meta name="keywords" 
+			  content="Oxford dictionaries, InSG" />
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+		<link rel="icon" type="image/png" href="../assets/icon.png" />
+		<link rel="me" href="mailto:seesea2@gmail.com" />
+		<meta name="author" content="yc" />
+
+		<link rel="stylesheet" 
+			  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+	</head>
+
+	<style>
+img {border: 1px solid black}
+img {max-width: 100%; max-height: 100%}
+	</style>
+	<body>
+		<noscript>Please enable JavaScript to continue using this application.</noscript>
+		<div class="container py-4">
+			<div class="row justify-content-center">
+				<div class="col-12 col-md-6 col-lg-4">
+					<img src="../assets/PBO_whiteonblue.png" alt="Oxofrd Logo">
+					<div class="input-group py-3">
+						<input id="dictInput" type="text" class="form-control" placeholder="search word">
+						<div class="input-group-append">
+							<button id="searchBtn" class="btn btn-primary">Search</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<ul id="definitions" class="list-group "></ul>
+		</div>
+	</body>
+
+	<footer class="container-fluid row py-5">
+		<section class="col-sm-12 col-md-8">
+			<div class="d-flex justify-content-start">
+				<section class="col-12 mr-4">
+					<i class="fa fa-anchor"></i> url
+					<ul class="list-unstyled small">
+						<li><a href="/">Home</a></li>
+						<li><a href="/buses">Bus Arrival</a></li>
+						<li><a href="/movies">Movies</a></li>
+					</ul>
+				</section>
+			</div>
+		</section>
+	</footer>
+
+
+	<script src="../typescript/main.ts"></script>
+	<script src="../typescript/dictionary.ts"></script>
+</html>
+

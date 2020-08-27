@@ -1,0 +1,75 @@
+<!doctype html>
+
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>InSG-Bus-Arrival</title>
+		<base href="/">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Bus Arrival Time" />
+		<meta name="keywords" 
+			  content="Bus Arrival Time, InSG" />
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+		<link rel="icon" type="image/png" href="../assets/icon.png" />
+		<link rel="me" href="mailto:seesea2@gmail.com" />
+		<meta name="author" content="yc" />
+
+		<link rel="stylesheet" 
+			  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+	</head>
+
+	<style>
+img {border: 1px solid black}
+img {max-width: 100%; max-height: 100%}
+	</style>
+	<body>
+		<noscript>Please enable JavaScript to continue using this application.</noscript>
+		<div class="container py-4">
+			<h3 id="busStop" class="text-center"></h3>
+
+			<table class="table text-center">
+				<thead class="thead-dark">
+					<tr>
+						<th scope="col">#</th>
+						<th scope="col">1st Bus</th>
+						<th scope="col">2nd Bus</th>
+						<th scope="col">3rd Bus</th>
+					</tr>
+				</thead>
+				<tbody></tbody>
+			</table>
+
+			<div class="text-center">
+				<button class="btn btn-primary">Refresh</button>
+			</div>
+
+
+			<div class="mt-4 small text-center">
+				Powered by <a href="https://data.gov.sg" target="_blank">Data.gov.sg</a>
+			</div>
+		</div>
+	</body>
+
+	<footer class="container-fluid row py-5">
+		<section class="col-sm-12 col-md-8">
+			<div class="d-flex justify-content-start">
+				<section class="col-12 mr-4">
+					<i class="fa fa-anchor"></i> url
+					<ul class="list-unstyled small">
+						<li><a href="/">Home</a></li>
+						<li><a href="/dictionary">Dictionary</a></li>
+						<li><a href="/movies">Movies</a></li>
+					</ul>
+				</section>
+			</div>
+		</section>
+	</footer>
+
+
+	<script src="../typescript/main.ts"></script>
+	<script src="../typescript/bus-arrival.ts"></script>
+</html>
+

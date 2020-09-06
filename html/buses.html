@@ -4,14 +4,14 @@
 
 	<head>
 		<meta charset="utf-8">
-		<title>InSG-Bus-Arrival</title>
+		<title>InSG - Bus Arrival</title>
 		<base href="/">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="description" content="Bus Arrival Time" />
 		<meta name="keywords" 
 			  content="Bus Arrival Time, InSG" />
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
 		<link rel="icon" type="image/png" href="../assets/icon.png" />
 		<link rel="me" href="mailto:seesea2@gmail.com" />
@@ -22,7 +22,6 @@
 	</head>
 
 	<style>
-img {border: 1px solid black}
 img {max-width: 100%; max-height: 100%}
 	</style>
 	<body>
@@ -31,22 +30,50 @@ img {max-width: 100%; max-height: 100%}
 			<div class="text-center">
 				<h1>Bus Arrival Time</h1>
 				<h6>Get bus arrival time by bus stop code.</h6>
-				<div class="row justify-content-center pt-4">
+				<div class="row justify-content-center mt-4">
 					<div class="col-12 col-md-6 col-lg-4">
 						<div class="input-group">
 							<input id="busStop" type="text" class="form-control" placeholder="Bus stop code">
 							<div class="input-group-append">
-								<button class="btn btn-primary">Get</button>
+								<button id="get" class="btn btn-primary">Get</button>
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>
 
-			<div class="table">
-			</div>
-			<div class="mt-4 small text-center">
-				Powered by <a href="https://data.gov.sg" target="_blank">Data.gov.sg</a>
+				<div id="bookmark" class="mt-5 d-none">
+					<h3>Bus Stop Bookmark</h3>
+					<table class="table table-sm mt-4">
+						<thead class="thead-dark">
+							<tr>
+								<th scope="col">#</th>
+								<th scope="col">Name</th>
+							</tr>
+						</thead>
+						<tbody id="bookmark"></tbody>
+					</table>
+				</div>
+
+
+				<div class="mt-5">
+					<button id="toggle" class="btn btn-primary">
+						Toggle Nearby Bus Stops
+						<span id="toggleSpinner" class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+					</button>
+				</div>
+				<table id="nearby" class="table table-sm mt-3 d-none">
+					<thead class="thead-dark">
+						<tr>
+							<th scope="col">#</th>
+							<th scope="col">Name</th>
+						</tr>
+					</thead>
+					<tbody id="nearby"></tbody>
+				</table>
+
+				<div class="mt-5 small text-center">
+					Powered by <a href="https://data.gov.sg" target="_blank">Data.gov.sg</a>
+				</div>
 			</div>
 		</div>
 	</body>

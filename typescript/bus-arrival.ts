@@ -1,8 +1,20 @@
-const h3 = document.querySelector('h3');
-const button = document.querySelector('button');
-const tbody = document.querySelector('tbody');
+import {add, exist} from './bus-stop-bookmarks.ts';
 
-function calculateArrivalTime(bus) {
+const h3 = document.querySelector('h3');
+const button = document.querySelector('button#refresh');
+const btnBookmark = document.querySelector('button#bookmark');
+const btnBack = document.querySelector('button#back');
+const table = document.querySelector('table');
+const tbody = document.querySelector('tbody');
+const spinner = document.querySelector('div#refresh');
+
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+const busStopCode = urlParams.get('busStop');
+
+let currentBusStop;
+
+export function calculateArrivalTime(bus) {
 	if (!bus || !bus.EstimatedArrival) {
 		return 'NA';
 	}
@@ -20,7 +32,7 @@ function calculateArrivalTime(bus) {
 	}
 }
 
-function getLoadColour(bus) {
+export function getLoadColour(bus) {
 	if(bus.Load == 'SEA')
 		return 'bg-success';
 	else if(bus.Load == 'SDA')
@@ -31,17 +43,19 @@ function getLoadColour(bus) {
 }
 
 export function refresh() {
-	const queryString = window.location.search;
-	const urlParams = new URLSearchParams(queryString);
-	const busStopCode = urlParams.get('busStop');
 	if(!busStopCode) {
 		return false;
 	}
 
+	spinner.classList.remove('d-none');
+	table.classList.add('d-none');
 	let xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function() {
 		if(this.readyState == 4 && this.status == 200) {
 			const getRslt = JSON.parse(this.responseText);
+			console.log(getRslt);
+			currentBusStop = getRslt.busStop;
+
 			h3.innerHTML = getRslt.busStop.Description;
 
 			tbody.innerHTML = '';
@@ -67,6 +81,14 @@ export function refresh() {
 
 				tbody.appendChild(tr);
 			});
+			spinner.classList.add('d-none');
+			table.classList.remove('d-none');
+			console.log(busStopCode);
+			if(!exist(busStopCode)) {
+				btnBookmark.classList.remove('d-none');
+			} else {
+				btnBookmark.classList.add('d-none');
+			}
 		}
 	}
 	xhttp.open('GET', '/api/lta/bus/busArrival/' + busStopCode);
@@ -75,4 +97,11 @@ export function refresh() {
 
 button.addEventListener('click', refresh);
 refresh();
+btnBookmark.addEventListener('click', () => {
+	btnBookmark.classList.add('d-none');
+	add(currentBusStop);
+});
+btnBack.addEventListener('click', () => {
+	window.history.back();
+});
 

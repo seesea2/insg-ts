@@ -4,14 +4,14 @@
 
 	<head>
 		<meta charset="utf-8">
-		<title>InSG-Bus-Arrival</title>
+		<title>InSG - Bus Arrival</title>
 		<base href="/">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="description" content="Bus Arrival Time" />
 		<meta name="keywords" 
 			  content="Bus Arrival Time, InSG" />
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
 		<link rel="icon" type="image/png" href="../assets/icon.png" />
 		<link rel="me" href="mailto:seesea2@gmail.com" />
@@ -22,7 +22,6 @@
 	</head>
 
 	<style>
-img {border: 1px solid black}
 img {max-width: 100%; max-height: 100%}
 	</style>
 	<body>
@@ -30,7 +29,13 @@ img {max-width: 100%; max-height: 100%}
 		<div class="container py-4">
 			<h3 id="busStop" class="text-center"></h3>
 
-			<table class="table text-center">
+			<div class="text-center my-3">
+				<div id="refresh" class="spinner-border" style="width:10rem;height:10rem" role="status">
+					<span class="sr-only">Loading...</span> 
+				</div>
+			</div>
+			
+			<table class="table text-center d-none">
 				<thead class="thead-dark">
 					<tr>
 						<th scope="col">#</th>
@@ -43,11 +48,12 @@ img {max-width: 100%; max-height: 100%}
 			</table>
 
 			<div class="text-center">
-				<button class="btn btn-primary">Refresh</button>
+				<button id="refresh" class="btn btn-primary">Refresh</button>
+				<button id="bookmark" class="btn btn-primary d-none">Bookmark this Bus Stop</button>
+				<button id="back" class="btn btn-primary">Back</button>
 			</div>
 
-
-			<div class="mt-4 small text-center">
+			<div class="mt-5 small text-center">
 				Powered by <a href="https://data.gov.sg" target="_blank">Data.gov.sg</a>
 			</div>
 		</div>

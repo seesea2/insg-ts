@@ -13,8 +13,14 @@ const tbodyBookmark = document.querySelector('tbody#bookmark');
 let nearbyBusStops = [];
 window.nearbyBusStops = [];
 
-export function getBusArrival() {
-	let busStopCode = (input.value || '').trim();
+export function getBusArrival(pStopCode?: string) {
+	let busStopCode;
+	if(pStopCode) {
+		busStopCode = pStopCode;
+	}
+	else {
+		busStopCode = (input.value || '').trim();
+	}
 	if(!busStopCode) {
 		return false;
 	}
@@ -76,15 +82,19 @@ export function getNearbyBusStops(coords: Coordinates) {
 				let btn = document.createElement('BUTTON');
 				btn.classList.add('btn');
 				btn.innerHTML = stop.busStop.BusStopCode;
-				btn.addEventListener('click', getBusArrival);
+				btn.addEventListener('click', () => {
+					getBusArrival(stop.busStop.BusStopCode);
+				});
 				th.appendChild(btn);
 				tr.appendChild(th);
 				let td = document.createElement('TD');
 				// td.innerHTML = stop.busStop.Description;
 				btn = document.createElement('BUTTON');
 				btn.classList.add('btn');
-				btn.innerHTML = stop.busStop.BusStopCode;
-				btn.addEventListener('click', getBusArrival);
+				btn.innerHTML = stop.busStop.Description;
+				btn.addEventListener('click', () => {
+					getBusArrival(stop.busStop.BusStopCode);
+				});
 				td.appendChild(btn);
 				tr.appendChild(td);
 
@@ -110,7 +120,9 @@ export function getBookmarks() {
 		let btn = document.createElement('BUTTON');
 		btn.classList.add('btn');
 		btn.innerHTML = bookmark.BusStopCode;
-		btn.addEventListener('click', getBusArrival);
+		btn.addEventListener('click', () => {
+			getBusArrival(bookmark.BusStopCode);
+		});
 		th.appendChild(btn);
 		tr.appendChild(th);
 		let td = document.createElement('TD');
@@ -118,7 +130,9 @@ export function getBookmarks() {
 		btn = document.createElement('BUTTON');
 		btn.classList.add('btn');
 		btn.innerHTML = bookmark.Description;
-		btn.addEventListener('click', getBusArrival);
+		btn.addEventListener('click', () => {
+			getBusArrival(bookmark.BusStopCode);
+		});
 		td.appendChild(btn);
 		tr.appendChild(td);
 		tbodyBookmark.appendChild(tr);
@@ -136,4 +150,8 @@ input.addEventListener('keyup', e => {
 
 btnToggle.addEventListener('click', toggleNearbyBusStops);
 getBookmarks();
+
+if(window.performance.getEntriesByType("navigation")[0].type === "back_forward") {
+	location.reload(true);
+}
 

@@ -112,6 +112,11 @@ export function getBookmarks() {
 	const bookmarks = getAll();
 	console.log('getBookmarks -> bookmarks: ', bookmarks);
 	tbodyBookmark.innerHTML = '';
+	if(bookmark.length == 0) {
+		divBookmark.classList.add('d-none');
+		return;
+	}
+
 	bookmarks.forEach(bookmark => {
 		const tr = document.createElement('TR');
 		const th = document.createElement('TH');

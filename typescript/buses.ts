@@ -146,7 +146,10 @@ export function getBookmarks() {
 }
 
 
-button.addEventListener('click', getBusArrival);
+button.addEventListener('click', () => {
+	getBusArrival()
+});
+
 input.addEventListener('keyup', e => {
 	if(e.keyCode === 13) {
 		getBusArrival()
